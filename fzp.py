@@ -56,9 +56,7 @@ class FZP(object):
         self.material = material
 
         self.outer_zone_thickness = self.resolution / 1.22
-        self.n_zones = int(
-            wavefront.wavelength * self.f / (4 * self.outer_zone_thickness ** 2)
-        )
+        self.n_zones = wavefront.wavelength * self.f / (4 * self.outer_zone_thickness ** 2)
 
         self.diameter = 4 * self.n_zones * self.outer_zone_thickness
         self.numerical_aperture = wavefront.wavelength / (2 * self.outer_zone_thickness)
