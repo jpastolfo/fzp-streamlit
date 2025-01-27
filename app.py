@@ -5,36 +5,39 @@ import streamlit as st
 import units
 from fzp import FZP, Material, WaveFront
 
-energy = st.number_input(
-    "Energy (eV)",value=8000,placeholder="Insert the energy...",step=1000
-)
+st.title("FZP Calculations")
 
-material = st.text_input(
-    "Material Symbol",value="Au",placeholder="Insert the material symbol..."
-)
+with st.sidebar:
+    energy = st.number_input(
+        "Energy (eV)",value=8000,placeholder="Insert the energy...",step=1000
+    )
 
-focal_length = st.number_input(
-    "Focal Length (mm)",value=40,placeholder="Insert the focal length...",step=1
-)
+    material = st.text_input(
+        "Material Symbol",value="Au",placeholder="Insert the material symbol..."
+    )
 
-resolution = st.number_input(
-    "Resolution (nm)",value=100,placeholder="Insert the resolution...",step=10
-)
+    focal_length = st.number_input(
+        "Focal Length (mm)",value=40,placeholder="Insert the focal length...",step=1
+    )
 
-energy_min = st.number_input(
-    "Minimum Energy (eV)",value=1000,placeholder="Insert the energy...",step=1000
-)
+    resolution = st.number_input(
+        "Resolution (nm)",value=100,placeholder="Insert the resolution...",step=10
+    )
 
-energy_max = st.number_input(
-    "Maximum Energy (eV)",value=20000,placeholder="Insert the energy...",step=1000
-)
+    energy_min = st.number_input(
+        "Minimum Energy (eV)",value=1000,placeholder="Insert the energy...",step=1000
+    )
 
-points = int(st.number_input(
-    "Points",value=0,placeholder="Insert the energy points...",step=10
-))
+    energy_max = st.number_input(
+        "Maximum Energy (eV)",value=20000,placeholder="Insert the energy...",step=1000
+    )
+
+    points = int(st.number_input(
+        "Points",value=0,placeholder="Insert the energy points...",step=10
+    ))
 
 
-do_calculation = st.button("Calculate",type="primary")
+    do_calculation = st.button("Calculate",type="primary")
 
 if do_calculation:
     beam = WaveFront(energy=energy)
